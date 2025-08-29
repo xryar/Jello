@@ -6,7 +6,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -48,13 +50,18 @@ fun JelloTextHeaderPreview() {
 }
 
 @Composable
-fun JelloTextRegularWithClick() {
+fun JelloTextRegularWithClick(
+    modifier: Modifier = Modifier.padding(16.dp),
+    text: String = "Please fill E-mail & password to login your app account.",
+    textClick: String = " Sign Up",
+    onClick: () -> Unit = {}
+) {
     val annotatedText = buildAnnotatedString {
-        append("Please fill E-mail & password to login your app account.")
+        append(text)
 
         pushStringAnnotation(
             tag = "TEXT_CLICK",
-            annotation = " Sign Up"
+            annotation = textClick
         )
         withStyle(
             style = SpanStyle(
@@ -62,16 +69,29 @@ fun JelloTextRegularWithClick() {
                 fontWeight = FontWeight.Bold
             )
         ) {
-            append(" Sign Up")
+            append(textClick)
         }
         pop()
     }
-
     ClickableText(
-        text = annotatedText
-    ) {
-
-    }
+        modifier = modifier,
+        text = annotatedText,
+        style = TextStyle(
+            fontSize = 14.sp,
+            fontWeight = FontWeight.Normal,
+            lineHeight = 24.sp,
+            textAlign = TextAlign.Left,
+        ),
+        onClick = { offset ->
+            annotatedText.getStringAnnotations(
+                tag = "TEXT_CLICK",
+                start = offset,
+                end = offset
+            ).firstOrNull()?.let {
+                onClick
+            }
+        }
+    )
 }
 
 @Preview
