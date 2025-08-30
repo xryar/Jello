@@ -1,5 +1,6 @@
 package com.example.ui.components
 
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material3.Text
@@ -122,4 +123,37 @@ fun JelloTextRegular(
 @Composable
 fun JelloTextRegularPreview() {
     JelloTextRegular()
+}
+
+@Composable
+fun JelloTextViewRow(
+    checked: Boolean = false,
+    onCheckedChange: (Boolean) -> Unit = {},
+    onTextClick: () -> Unit = {}
+) {
+    Row(
+        modifier = Modifier.padding(16.dp)
+    ) {
+        JelloCheckBox(
+            checked = checked,
+            onCheckedChange = onCheckedChange,
+        )
+
+        val annotatedString = buildAnnotatedString {
+            append("Forgot password ?")
+        }
+
+        ClickableText(
+            text = annotatedString,
+            onClick = {
+                onTextClick
+            }
+        )
+    }
+}
+
+@Preview
+@Composable
+fun JelloTextViewRowPreview() {
+    JelloTextViewRow()
 }

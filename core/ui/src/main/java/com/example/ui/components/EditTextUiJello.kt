@@ -56,39 +56,3 @@ fun JelloEditTextPreview() {
 fun JelloEditTextPasswordPreview() {
     JelloEditText(visualTransformation = PasswordVisualTransformation())
 }
-
-@Composable
-fun JelloTextViewRow(
-    checked: Boolean = false,
-    onCheckedChange: (Boolean) -> Unit = {},
-    onTextClick: () -> Unit = {}
-) {
-    Row(
-        modifier = Modifier.padding(16.dp)
-    ) {
-        Row {
-            Checkbox(
-                checked = checked,
-                onCheckedChange = onCheckedChange
-            )
-            Text(text = "Remember me")
-        }
-
-        val annotatedString = buildAnnotatedString {
-            append("Forgot password ?")
-        }
-
-        ClickableText(
-            text = annotatedString,
-            onClick = {
-                onTextClick
-            }
-        )
-    }
-}
-
-@Preview
-@Composable
-fun JelloTextViewRowPreview() {
-    JelloTextViewRow()
-}
