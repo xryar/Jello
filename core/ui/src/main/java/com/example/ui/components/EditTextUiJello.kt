@@ -2,15 +2,20 @@ package com.example.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -50,4 +55,40 @@ fun JelloEditTextPreview() {
 @Composable
 fun JelloEditTextPasswordPreview() {
     JelloEditText(visualTransformation = PasswordVisualTransformation())
+}
+
+@Composable
+fun JelloTextViewRow(
+    checked: Boolean = false,
+    onCheckedChange: (Boolean) -> Unit = {},
+    onTextClick: () -> Unit = {}
+) {
+    Row(
+        modifier = Modifier.padding(16.dp)
+    ) {
+        Row {
+            Checkbox(
+                checked = checked,
+                onCheckedChange = onCheckedChange
+            )
+            Text(text = "Remember me")
+        }
+
+        val annotatedString = buildAnnotatedString {
+            append("Forgot password ?")
+        }
+
+        ClickableText(
+            text = annotatedString,
+            onClick = {
+                onTextClick
+            }
+        )
+    }
+}
+
+@Preview
+@Composable
+fun JelloTextViewRowPreview() {
+    JelloTextViewRow()
 }
