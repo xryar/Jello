@@ -106,9 +106,8 @@ fun JelloTextRegular() {
         text = "E-mail",
         style = TextStyle(
             fontSize = 14.sp,
-            fontWeight = FontWeight.Bold,
+            fontWeight = FontWeight.Normal,
             lineHeight = 16.sp,
-            color = Color.Black,
             textAlign = TextAlign.Left
         )
     )
