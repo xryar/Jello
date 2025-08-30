@@ -1,5 +1,6 @@
 package com.example.ui.components
 
+import android.R.attr.text
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material3.Text
@@ -97,4 +98,25 @@ fun JelloTextRegularWithClick(
 @Composable
 fun JelloTextRegularWithClickPreview() {
     JelloTextRegularWithClick()
+}
+
+@Composable
+fun JelloTextRegular() {
+    Text(
+        modifier = Modifier.padding(16.dp),
+        text = "E-mail",
+        style = TextStyle(
+            fontSize = 14.sp,
+            fontWeight = FontWeight.Bold,
+            lineHeight = 16.sp,
+            color = Color.Black,
+            textAlign = TextAlign.Left
+        )
+    )
+}
+
+@Preview
+@Composable
+fun JelloTextRegularPreview() {
+    JelloTextRegular()
 }
