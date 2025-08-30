@@ -100,16 +100,21 @@ fun JelloTextRegularWithClickPreview() {
 }
 
 @Composable
-fun JelloTextRegular() {
+fun JelloTextRegular(
+    modifier: Modifier = Modifier.padding(16.dp),
+    text: String = "E-mail",
+    color: Color = Color.Black
+) {
     Text(
-        modifier = Modifier.padding(16.dp),
-        text = "E-mail",
+        modifier = modifier,
+        text = text,
         style = TextStyle(
             fontSize = 14.sp,
             fontWeight = FontWeight.Normal,
             lineHeight = 16.sp,
             textAlign = TextAlign.Left
-        )
+        ),
+        color = color
     )
 }
 
