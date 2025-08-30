@@ -2,6 +2,7 @@ package com.example.ui.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
@@ -37,7 +38,8 @@ fun JelloCheckBox(
         )
         Text(
             text = label,
-            modifier = Modifier.padding(vertical = 16.dp),
+            modifier = Modifier.padding(vertical = 16.dp)
+                .fillMaxWidth(),
             style = TextStyle(
                 fontSize = 12.sp,
                 lineHeight = 14.sp,
