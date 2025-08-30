@@ -19,10 +19,10 @@ import com.example.ui.theme.StrongGreen
 
 @Composable
 fun JelloCheckBox(
+    modifier: Modifier = Modifier,
     label: String = "Remember me",
     checked: Boolean = false,
     onCheckedChange: (Boolean) -> Unit = {},
-    modifier: Modifier = Modifier
 ) {
     Row(
         modifier = modifier,
