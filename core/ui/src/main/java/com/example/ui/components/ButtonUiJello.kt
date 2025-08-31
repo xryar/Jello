@@ -44,11 +44,12 @@ fun JelloButtonPrimaryPreview() {
 
 @Composable
 fun JelloButtonFacebook(
-    text: String = "Facebook",
-    onClick: () -> Unit = {},
     modifier: Modifier = Modifier.fillMaxWidth()
         .padding(16.dp)
         .height(56.dp),
+    text: String = "Facebook",
+    onClick: () -> Unit = {},
+
 ) {
     JelloWithIconBaseButton(
         modifier = modifier,
@@ -72,11 +73,11 @@ fun JelloButtonFacebookPreview() {
 
 @Composable
 fun JelloButtonGoogle(
-    text: String = "Google",
-    onClick: () -> Unit = {},
     modifier: Modifier = Modifier.fillMaxWidth()
         .padding(16.dp)
         .height(56.dp),
+    text: String = "Google",
+    onClick: () -> Unit = {},
 ) {
     JelloWithIconBaseButton(
         modifier = modifier,
@@ -100,10 +101,10 @@ fun JelloButtonGooglePreview() {
 
 @Composable
 fun JelloButtonRow(
+    modifier: Modifier = Modifier.fillMaxWidth()
+        .padding(16.dp),
     onClickGoogle: () -> Unit = {},
     onClickFacebook: () -> Unit = {},
-    modifier: Modifier = Modifier.fillMaxWidth()
-        .padding(16.dp)
 ) {
     Row(
         modifier = modifier,
