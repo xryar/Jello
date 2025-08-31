@@ -1,5 +1,7 @@
 package com.example.ui.components
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -44,11 +46,12 @@ fun JelloButtonPrimaryPreview() {
 fun JelloButtonFacebook(
     text: String = "Facebook",
     onClick: () -> Unit = {},
+    modifier: Modifier = Modifier.fillMaxWidth()
+        .padding(16.dp)
+        .height(56.dp),
 ) {
     JelloWithIconBaseButton(
-        modifier = Modifier.fillMaxWidth()
-            .padding(16.dp)
-            .height(56.dp),
+        modifier = modifier,
         text = text,
         onClick = onClick,
         enabled = true,
@@ -71,11 +74,12 @@ fun JelloButtonFacebookPreview() {
 fun JelloButtonGoogle(
     text: String = "Google",
     onClick: () -> Unit = {},
+    modifier: Modifier = Modifier.fillMaxWidth()
+        .padding(16.dp)
+        .height(56.dp),
 ) {
     JelloWithIconBaseButton(
-        modifier = Modifier.fillMaxWidth()
-            .padding(16.dp)
-            .height(56.dp),
+        modifier = modifier,
         text = text,
         onClick = onClick,
         enabled = true,
@@ -92,4 +96,36 @@ fun JelloButtonGoogle(
 @Composable
 fun JelloButtonGooglePreview() {
     JelloButtonGoogle()
+}
+
+@Composable
+fun JelloButtonRow(
+    onClickGoogle: () -> Unit = {},
+    onClickFacebook: () -> Unit = {},
+    modifier: Modifier = Modifier.fillMaxWidth()
+        .padding(16.dp)
+) {
+    Row(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(16.dp)
+    ) {
+        JelloButtonGoogle(
+            modifier = Modifier
+                .height(56.dp)
+                .weight(1f),
+            onClick = onClickGoogle,
+        )
+        JelloButtonFacebook(
+            modifier = Modifier
+                .height(56.dp)
+                .weight(1f),
+            onClick = onClickFacebook,
+        )
+    }
+}
+
+@Preview
+@Composable
+fun JelloButtonRowPreview() {
+    JelloButtonRow()
 }
