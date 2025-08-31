@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.dp
 import com.example.ui.R
 import com.example.ui.theme.LightOrange
 import com.example.ui.theme.ModerateBlue
+import com.example.ui.theme.PureOrange
 import com.example.ui.theme.VeryDarkGrayishBlue
 
 @Composable
@@ -64,4 +65,31 @@ fun JelloButtonFacebook(
 @Composable
 fun JelloButtonFacebookPreview() {
     JelloButtonFacebook()
+}
+
+@Composable
+fun JelloButtonGoogle(
+    text: String = "Google",
+    onClick: () -> Unit = {},
+) {
+    JelloWithIconBaseButton(
+        modifier = Modifier.fillMaxWidth()
+            .padding(16.dp)
+            .height(56.dp),
+        text = text,
+        onClick = onClick,
+        enabled = true,
+        colors = ButtonDefaults.buttonColors(
+            containerColor = PureOrange,
+            contentColor = Color.White,
+        ),
+        srcIcon = R.drawable.ic_google,
+        descIcon = "Google"
+    )
+}
+
+@Preview
+@Composable
+fun JelloButtonGooglePreview() {
+    JelloButtonGoogle()
 }
