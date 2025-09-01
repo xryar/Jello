@@ -14,6 +14,12 @@ import com.example.auth.ui.signup.SignUpScreen
 import com.example.ui.theme.JelloTheme
 
 class MainActivity : ComponentActivity() {
+
+    sealed class Screen(val route: String) {
+        object AuthSignIn: Screen("auth/signin")
+        object AuthSignUp: Screen("auth/signup")
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -22,24 +28,16 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
                 NavHost(
                     navController = navController,
-                    startDestination = "signin"
+                    startDestination = Screen.AuthSignIn.route
                 ) {
-                    composable("signin") {
+                    composable(Screen.AuthSignIn.route) {
                         SignInScreen(navController)
                     }
-                    composable("signup") {
+                    composable(Screen.AuthSignUp.route) {
                         SignUpScreen(navController)
                     }
                 }
             }
         }
-    }
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    JelloTheme {
     }
 }
