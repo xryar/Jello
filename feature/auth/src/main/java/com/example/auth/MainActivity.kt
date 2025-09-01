@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
                     startDestination = "signin"
                 ) {
                     composable("signin") {
-                        SignInScreen()
+                        SignInScreen(navController)
                     }
                     composable("signup") {
                         SignUpScreen()

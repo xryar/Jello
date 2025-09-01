@@ -91,7 +91,7 @@ fun JelloTextRegularWithClick(
                 start = offset,
                 end = offset
             ).firstOrNull()?.let {
-                onClick
+                onClick()
             }
         }
     )
