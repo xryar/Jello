@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.auth.ui.signin.SignInScreen
+import com.example.auth.ui.signup.SignUpScreen
 import com.example.ui.theme.JelloTheme
 
 class MainActivity : ComponentActivity() {
@@ -15,7 +16,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             JelloTheme {
-                SignInScreen()
+//                SignInScreen()
+                SignUpScreen()
             }
         }
     }
