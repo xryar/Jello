@@ -29,6 +29,7 @@ fun SignInScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .padding(vertical = 16.dp)
             .background(Color.White)
     ) {
         JelloImageViewClick(
