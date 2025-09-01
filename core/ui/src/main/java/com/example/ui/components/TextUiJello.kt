@@ -130,14 +130,14 @@ fun JelloTextRegularPreview() {
 
 @Composable
 fun JelloTextViewRow(
-    checked: Boolean = false,
+    checked: Boolean = true,
     onCheckedChange: (Boolean) -> Unit = {},
     onTextClick: () -> Unit = {},
     textLeft: String = "Remember me",
     textRight: String = "Forgot Password ?"
 ) {
     Row(
-        modifier = Modifier.padding(16.dp)
+        modifier = Modifier.padding(horizontal = 16.dp)
             .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
