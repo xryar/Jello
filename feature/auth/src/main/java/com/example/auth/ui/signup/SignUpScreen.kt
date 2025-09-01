@@ -14,13 +14,11 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.ui.components.JelloButtonPrimary
-import com.example.ui.components.JelloButtonRow
 import com.example.ui.components.JelloEditText
 import com.example.ui.components.JelloImageViewClick
 import com.example.ui.components.JelloTextHeader
 import com.example.ui.components.JelloTextRegular
 import com.example.ui.components.JelloTextRegularWithClick
-import com.example.ui.components.JelloTextViewRow
 
 @Composable
 fun SignUpScreen(
