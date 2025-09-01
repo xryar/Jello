@@ -20,7 +20,7 @@ fun JelloImageViewClick(
     imageVector: ImageVector = Icons.AutoMirrored.Filled.ArrowBack,
     imageDescription: String = "Back",
 ) {
-    IconButton(onClick = { onClick }) {
+    IconButton(onClick = { onClick() }) {
         Icon(
             imageVector = imageVector,
             contentDescription = imageDescription,
