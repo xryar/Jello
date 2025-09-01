@@ -42,6 +42,7 @@ android {
 dependencies {
     // Module
     implementation(project(":feature:auth"))
+    implementation(project(":feature:home"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
