@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import com.example.ui.R
 import com.example.ui.components.BannerSliderUiJello
 import com.example.ui.components.JelloImageViewClick
+import com.example.ui.components.JelloImageViewPhotoUrlRounded
 import com.example.ui.components.JelloTextRegular
 import com.example.ui.theme.StrongBlue
 
@@ -108,8 +109,18 @@ fun SubItemList(subItems: List<String>) {
         modifier = Modifier.padding(start = 16.dp)
     ) {
         items(subItems) { item ->
-            Card {
-                JelloImageViewClick()
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(end = 16.dp, bottom = 16.dp)
+                    .clickable{
+
+                    },
+            ) {
+                JelloImageViewPhotoUrlRounded(
+                    item,
+                    "image ke $item"
+                )
             }
         }
     }
@@ -119,8 +130,8 @@ fun SubItemList(subItems: List<String>) {
 @Composable
 fun SubItemListPreview() {
     val temp = listOf(
-        "https://picsum.photos/200",
-        "https://picsum.photos/200",
+        "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/254-Mega.png",
+        "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/254-Mega.png",
     )
     SubItemList(temp)
 }
