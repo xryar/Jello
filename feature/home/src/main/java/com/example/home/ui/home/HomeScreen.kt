@@ -15,9 +15,12 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.ui.R
+import com.example.ui.components.BannerSliderUiJello
 import com.example.ui.components.JelloImageViewClick
 import com.example.ui.components.JelloTextRegular
 import com.example.ui.theme.StrongBlue
@@ -71,10 +74,22 @@ fun HomeScreen() {
                 }
             )
         }
+
+        val images = listOf(
+            painterResource(R.drawable.sample_slide1),
+            painterResource(R.drawable.sample_slide1),
+            painterResource(R.drawable.sample_slide1),
+        )
+        BannerSliderUiJello(
+            bannerImage = images,
+            onClick = {
+
+            }
+        )
     }
 }
 
-@Preview(showBackground = true, showSystemUi = true, device = Devices.NEXUS_5)
+@Preview(showBackground = true, device = Devices.NEXUS_5)
 @Composable
 fun HomeScreenPreview() {
     HomeScreen()
