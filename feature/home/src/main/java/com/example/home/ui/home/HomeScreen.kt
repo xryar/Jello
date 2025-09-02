@@ -26,6 +26,7 @@ import com.example.ui.components.BannerSliderUiJello
 import com.example.ui.components.JelloImageViewClick
 import com.example.ui.components.JelloImageViewPhotoUrlRounded
 import com.example.ui.components.JelloTextRegular
+import com.example.ui.theme.LightGrayishBlue
 import com.example.ui.theme.StrongBlue
 
 @Composable
@@ -116,6 +117,9 @@ fun SubItemList(subItems: List<String>) {
                     .clickable{
 
                     },
+                colors = CardDefaults.cardColors(
+                    containerColor = LightGrayishBlue
+                )
             ) {
                 JelloImageViewPhotoUrlRounded(
                     item,
