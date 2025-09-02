@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material.icons.outlined.ShoppingCart
@@ -93,4 +95,32 @@ fun HomeScreen() {
 @Composable
 fun HomeScreenPreview() {
     HomeScreen()
+}
+
+data class ProductItem(
+    val title: String,
+    val subItems: List<String> = emptyList()
+)
+
+@Composable
+fun SubItemList(subItems: List<String>) {
+    LazyRow(
+        modifier = Modifier.padding(start = 16.dp)
+    ) {
+        items(subItems) { item ->
+            Card {
+                JelloImageViewClick()
+            }
+        }
+    }
+}
+
+@Preview
+@Composable
+fun SubItemListPreview() {
+    val temp = listOf(
+        "https://picsum.photos/200",
+        "https://picsum.photos/200",
+    )
+    SubItemList(temp)
 }
