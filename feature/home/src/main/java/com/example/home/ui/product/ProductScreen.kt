@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Menu
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -84,6 +85,27 @@ fun ProductScreen() {
             thickness = 2.dp,
             color = VeryLightGray
         )
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 25.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            JelloTextRegular(
+                text = "NEW PRODUCT",
+                modifier = Modifier.weight(1f)
+            )
+
+            JelloImageViewClick(
+                imageVector = Icons.Outlined.Search,
+                color = LightGrayishBlue
+            )
+            JelloImageViewClick(
+                imageVector = Icons.Outlined.Menu,
+                color = LightGrayishBlue
+            )
+        }
 
         ItemProduct()
     }
