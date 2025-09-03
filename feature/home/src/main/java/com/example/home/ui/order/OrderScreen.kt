@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.Card
@@ -22,6 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.home.R
 import com.example.ui.components.JelloImageViewClick
+import com.example.ui.components.JelloImageViewPhotoUrlRounded
 import com.example.ui.components.JelloTextRegular
 import com.example.ui.theme.Gray
 import com.example.ui.theme.LightGrayishBlue
@@ -100,6 +103,29 @@ fun OrderScreen() {
                 imageVector = ImageVector.vectorResource(R.drawable.ic_catalog_more),
                 color = LightGrayishBlue
             )
+        }
+
+        ItemProductGrid()
+    }
+}
+
+@Composable
+fun ItemProductGrid() {
+    LazyVerticalGrid(
+        columns = GridCells.Fixed(2)
+    ) {
+        items(10) {
+            Column {
+                Card {
+                    JelloImageViewPhotoUrlRounded(
+                        "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/254-Mega.png",
+                        "",
+                    )
+                }
+
+                JelloTextRegular()
+                JelloTextRegular()
+            }
         }
     }
 }
