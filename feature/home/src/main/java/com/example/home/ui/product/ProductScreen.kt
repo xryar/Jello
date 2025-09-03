@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.Card
@@ -20,7 +21,9 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.ui.components.JelloImageViewClick
+import com.example.ui.components.JelloImageViewPhotoUrlRounded
 import com.example.ui.components.JelloTextRegular
+import com.example.ui.components.RatingBar
 import com.example.ui.theme.Gray
 import com.example.ui.theme.VeryLightGray
 
@@ -78,6 +81,30 @@ fun ProductScreen() {
             thickness = 2.dp,
             color = VeryLightGray
         )
+
+        ItemProduct()
+    }
+}
+
+@Composable
+fun ItemProduct() {
+    LazyColumn {
+        items(10) {
+            Row {
+                Card {
+                    JelloImageViewPhotoUrlRounded(
+                        url = "",
+                        description = "",
+                    )
+                }
+
+                Column {
+                    JelloTextRegular()
+                    JelloTextRegular()
+                    RatingBar(rating = 2f)
+                }
+            }
+        }
     }
 }
 
