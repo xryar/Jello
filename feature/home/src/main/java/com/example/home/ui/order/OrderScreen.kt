@@ -2,7 +2,9 @@ package com.example.home.ui.order
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -28,6 +30,7 @@ import com.example.ui.components.JelloImageViewPhotoUrlRounded
 import com.example.ui.components.JelloTextRegular
 import com.example.ui.theme.Gray
 import com.example.ui.theme.LightGrayishBlue
+import com.example.ui.theme.PureOrange
 import com.example.ui.theme.VeryLightGray
 
 @Composable
@@ -112,19 +115,39 @@ fun OrderScreen() {
 @Composable
 fun ItemProductGrid() {
     LazyVerticalGrid(
-        columns = GridCells.Fixed(2)
+        modifier = Modifier.background(Color.White),
+        columns = GridCells.Fixed(2),
+        contentPadding = PaddingValues(16.dp),
+        horizontalArrangement = Arrangement.spacedBy(16.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         items(10) {
             Column {
-                Card {
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable{
+
+                        },
+                    colors = CardDefaults.cardColors(
+                        containerColor = LightGrayishBlue
+                    )
+                ) {
                     JelloImageViewPhotoUrlRounded(
                         "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/254-Mega.png",
-                        "",
+                        "pokemon",
                     )
                 }
 
-                JelloTextRegular()
-                JelloTextRegular()
+                JelloTextRegular(
+                    text = "Nama Product",
+                    modifier = Modifier.padding(top = 11.dp)
+                )
+                JelloTextRegular(
+                    text = "$130",
+                    modifier = Modifier.padding(top = 9.dp),
+                    color = PureOrange
+                )
             }
         }
     }
