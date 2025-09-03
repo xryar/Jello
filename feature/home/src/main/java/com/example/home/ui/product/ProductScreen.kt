@@ -11,6 +11,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -20,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import com.example.ui.components.JelloImageViewClick
 import com.example.ui.components.JelloTextRegular
 import com.example.ui.theme.Gray
+import com.example.ui.theme.VeryLightGray
 
 
 @Composable
@@ -68,6 +71,13 @@ fun ProductScreen() {
                 }
             }
         }
+
+        HorizontalDivider(
+            modifier = Modifier
+                .fillMaxWidth(),
+            thickness = 2.dp,
+            color = VeryLightGray
+        )
     }
 }
 
