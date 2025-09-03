@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Menu
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -19,9 +18,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.home.R
 import com.example.ui.components.JelloImageViewClick
 import com.example.ui.components.JelloImageViewPhotoUrlRounded
 import com.example.ui.components.JelloTextRegular
@@ -98,11 +100,11 @@ fun ProductScreen() {
             )
 
             JelloImageViewClick(
-                imageVector = Icons.Outlined.Search,
+                imageVector = ImageVector.vectorResource(id = R.drawable.ic_filter),
                 color = LightGrayishBlue
             )
             JelloImageViewClick(
-                imageVector = Icons.Outlined.Menu,
+                imageVector = ImageVector.vectorResource(R.drawable.ic_catalog),
                 color = LightGrayishBlue
             )
         }
@@ -133,7 +135,7 @@ fun ItemProduct() {
                     )
                 ) {
                     JelloImageViewPhotoUrlRounded(
-                        url = "",
+                        url = "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/254-Mega.png",
                         description = "",
                     )
                 }
