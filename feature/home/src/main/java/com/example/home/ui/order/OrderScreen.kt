@@ -97,7 +97,7 @@ fun OrderScreen() {
                 color = LightGrayishBlue
             )
             JelloImageViewClick(
-                imageVector = ImageVector.vectorResource(R.drawable.ic_catalog),
+                imageVector = ImageVector.vectorResource(R.drawable.ic_catalog_more),
                 color = LightGrayishBlue
             )
         }
