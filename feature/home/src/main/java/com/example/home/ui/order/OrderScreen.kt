@@ -21,8 +21,6 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.home.R
-import com.example.home.ui.ScreenContent
-import com.example.home.ui.product.ItemProduct
 import com.example.ui.components.JelloImageViewClick
 import com.example.ui.components.JelloTextRegular
 import com.example.ui.theme.Gray
