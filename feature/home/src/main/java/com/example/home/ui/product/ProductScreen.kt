@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Search
@@ -25,6 +26,8 @@ import com.example.ui.components.JelloImageViewPhotoUrlRounded
 import com.example.ui.components.JelloTextRegular
 import com.example.ui.components.RatingBar
 import com.example.ui.theme.Gray
+import com.example.ui.theme.LightGrayishBlue
+import com.example.ui.theme.PureOrange
 import com.example.ui.theme.VeryLightGray
 
 
@@ -88,10 +91,25 @@ fun ProductScreen() {
 
 @Composable
 fun ItemProduct() {
-    LazyColumn {
+    LazyColumn(
+        modifier = Modifier
+            .padding(top = 16.dp)
+            .padding(horizontal = 16.dp)
+            .background(Color.White)
+    ) {
         items(10) {
             Row {
-                Card {
+                Card(
+                    modifier = Modifier
+                        .size(100.dp)
+                        .padding(bottom = 16.dp)
+                        .clickable{
+
+                        },
+                    colors = CardDefaults.cardColors(
+                        containerColor = LightGrayishBlue
+                    )
+                ) {
                     JelloImageViewPhotoUrlRounded(
                         url = "",
                         description = "",
@@ -99,9 +117,22 @@ fun ItemProduct() {
                 }
 
                 Column {
-                    JelloTextRegular()
-                    JelloTextRegular()
-                    RatingBar(rating = 2f)
+                    JelloTextRegular(
+                        text = "Product Name",
+                        modifier = Modifier
+                    )
+                    JelloTextRegular(
+                        text = "Rp. 100.000",
+                        color = PureOrange ,
+                        modifier = Modifier.padding(top = 7.dp),
+                    )
+                    RatingBar(
+                        rating = 2f,
+                        modifier = Modifier.padding(top = 10.dp),
+                        onRatingChanged = {
+
+                        }
+                    )
                 }
             }
         }
