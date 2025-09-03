@@ -5,11 +5,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 
 @Composable
-fun OrderScreen() {
-    ScreenContent("Order")
-}
-
-@Composable
 fun AccountScreen() {
     ScreenContent("Account")
 }
