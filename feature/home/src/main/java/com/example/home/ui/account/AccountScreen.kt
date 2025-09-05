@@ -9,6 +9,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material3.Card
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -74,6 +79,25 @@ fun AccountScreen() {
             text = "Welcom nama user",
             color = Color.White
         )
+    }
+}
+
+@Composable
+fun ItemMenuAccount() {
+    Card {
+        Row {
+            JelloImageViewClick(
+                color = Color.White,
+                imageVector = Icons.Default.Person
+            )
+            JelloTextRegular(
+                text = "Edit Profile"
+            )
+            JelloImageViewClick(
+                color = Color.White,
+                imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight
+            )
+        }
     }
 }
 
