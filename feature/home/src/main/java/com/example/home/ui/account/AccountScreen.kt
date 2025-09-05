@@ -80,7 +80,7 @@ fun AccountScreen() {
             modifier = Modifier
                 .padding(horizontal = 16.dp)
                 .align(Alignment.CenterHorizontally),
-            text = "Welcom nama user",
+            text = "Welcome nama user",
             color = Color.White
         )
 
