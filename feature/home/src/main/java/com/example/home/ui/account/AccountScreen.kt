@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Person
@@ -18,6 +20,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
@@ -80,6 +83,20 @@ fun AccountScreen() {
             text = "Welcom nama user",
             color = Color.White
         )
+
+        Spacer(Modifier.weight(1f))
+
+        val sampleMenu = List(6) { "Item Menu #$it" }
+
+        LazyColumn(
+            modifier = Modifier
+                .clip(RoundedCornerShape(20.dp, 20.dp))
+                .background(Color.White)
+        ) {
+            items(sampleMenu.count()) {
+                ItemMenuAccount(label = sampleMenu[it])
+            }
+        }
     }
 }
 
