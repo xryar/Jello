@@ -1,6 +1,7 @@
 package com.example.home.ui.account
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -13,6 +14,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -82,19 +84,46 @@ fun AccountScreen() {
 }
 
 @Composable
-fun ItemMenuAccount() {
-    Card {
-        Row {
+fun ItemMenuAccount(
+    modifier: Modifier = Modifier,
+    label: String = "Edit Profile",
+    iconLeft: ImageVector = Icons.Default.Person,
+    iconRight: ImageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
+    colorLeft: Color = Color.Black,
+    colorRight: Color = Color.Black,
+) {
+    Card (
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable{
+
+            },
+        colors = CardDefaults.cardColors(
+            containerColor = Color.White,
+        )
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(20.dp),
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
             JelloImageViewClick(
-                color = Color.White,
-                imageVector = Icons.Default.Person
+                color = colorLeft,
+                imageVector = iconLeft,
+                imageDescription = "Icon Left"
             )
             JelloTextRegular(
-                text = "Edit Profile"
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .align(Alignment.CenterVertically)
+                    .weight(1f),
+                text = label
             )
             JelloImageViewClick(
-                color = Color.White,
-                imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight
+                color = colorRight,
+                imageVector = iconRight,
+                imageDescription = "Icon Right"
             )
         }
     }
