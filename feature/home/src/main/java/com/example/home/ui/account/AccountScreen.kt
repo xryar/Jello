@@ -11,10 +11,16 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Place
+import androidx.compose.material.icons.filled.ShoppingCart
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
@@ -84,21 +90,62 @@ fun AccountScreen() {
             color = Color.White
         )
 
+        Spacer(Modifier.height(64.dp))
         Spacer(Modifier.weight(1f))
 
-        val sampleMenu = List(6) { "Item Menu #$it" }
+        val sampleMenu = listOf(
+            MenuItem(
+                iconLeft = Icons.Default.Person,
+                label = "Edit Profile",
+                iconRight = Icons.AutoMirrored.Filled.KeyboardArrowRight
+            ),
+            MenuItem(
+                iconLeft = Icons.Default.Place,
+                label = "Shipping Address",
+                iconRight = Icons.AutoMirrored.Filled.KeyboardArrowRight
+            ),
+            MenuItem(
+                iconLeft = Icons.Default.Favorite,
+                label = "Wishlist",
+                iconRight = Icons.AutoMirrored.Filled.KeyboardArrowRight
+            ),
+            MenuItem(
+                iconLeft = ImageVector.vectorResource(R.drawable.ic_history),
+                label = "Order History",
+                iconRight = Icons.AutoMirrored.Filled.KeyboardArrowRight
+            ),
+            MenuItem(
+                iconLeft = Icons.Default.Notifications,
+                label = "Notification",
+                iconRight = Icons.AutoMirrored.Filled.KeyboardArrowRight
+            ),
+            MenuItem(
+                iconLeft = ImageVector.vectorResource(R.drawable.ic_cards),
+                label = "Cards",
+                iconRight = Icons.AutoMirrored.Filled.KeyboardArrowRight
+            ),
+        )
 
         LazyColumn(
             modifier = Modifier
                 .clip(RoundedCornerShape(20.dp, 20.dp))
                 .background(Color.White)
         ) {
-            items(sampleMenu.count()) {
-                ItemMenuAccount(label = sampleMenu[it])
+            items(sampleMenu) {
+                ItemMenuAccount(
+                    iconLeft = it.iconLeft,
+                    label = it.label,
+                )
             }
         }
     }
 }
+
+data class MenuItem(
+    val iconLeft: ImageVector,
+    val label: String,
+    val iconRight: ImageVector,
+)
 
 @Composable
 fun ItemMenuAccount(
