@@ -5,6 +5,7 @@ import android.content.Intent
 import com.example.auth.MainActivity
 import com.example.home.HomeActivity
 import com.example.navigator.Navigator
+import javax.inject.Inject
 
 class AppNavigator @Inject constructor() : Navigator {
 
