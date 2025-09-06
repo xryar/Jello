@@ -41,6 +41,8 @@ android {
 
 dependencies {
     // Module
+    implementation(project(":core:navigator"))
+
     implementation(project(":feature:auth"))
     implementation(project(":feature:home"))
 
