@@ -35,7 +35,7 @@ fun JelloBaseButton(
         enabled = enabled,
         shape = shape,
         colors = color,
-        onClick = { onClick }
+        onClick = onClick
     ) {
         Text(text)
     }
