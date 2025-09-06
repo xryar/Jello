@@ -28,6 +28,12 @@ android {
                 "proguard-rules.pro"
             )
         }
+        getByName("debug") {
+            buildConfigField("String", "BASE_URL", "https://assets.bagicode.com/bcompose/")
+        }
+        getByName("release") {
+            buildConfigField("String", "BASE_URL", "https://assets.bagicode.com/bcompose/")
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
