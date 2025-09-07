@@ -11,8 +11,8 @@ sealed class NetworkResource<out V: Any, out T: Any> {
     data class NetworkApiError<T: Any>(val errData: T?, val code: Int): NetworkResource<Nothing, T>()
 
     // Network Issue
-    data class NetworkError(val error: IOException): NetworkResource<Nothing, Nothing>()
+    data class NetworkError(val error: IOException?): NetworkResource<Nothing, Nothing>()
 
     // Parsing JSON Error
-    data class NetworkUnknowError(val throwable: Throwable): NetworkResource<Nothing, Nothing>()
+    data class NetworkUnknowError(val throwable: Throwable?): NetworkResource<Nothing, Nothing>()
 }
