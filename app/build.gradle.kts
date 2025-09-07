@@ -52,6 +52,10 @@ dependencies {
     // Module
     implementation(project(":core:navigator"))
 
+    implementation(project(":domain"))
+    implementation(project(":data:remote"))
+    implementation(project(":data:local"))
+
     implementation(project(":feature:auth"))
     implementation(project(":feature:home"))
 
