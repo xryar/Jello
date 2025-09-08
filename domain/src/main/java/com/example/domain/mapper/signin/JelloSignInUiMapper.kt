@@ -7,7 +7,7 @@ import com.example.domain.model.ui.JelloSignInUiModel
 class JelloSignInUiMapper: Mapper<JelloSignInDomainModel, JelloSignInUiModel> {
     override fun to(t: JelloSignInDomainModel): JelloSignInUiModel {
         return JelloSignInUiModel(
-            addresss = t.addresss,
+            address = t.address,
             name = t.name,
             token = t.token,
             profil = t.profil,

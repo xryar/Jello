@@ -1,7 +1,7 @@
 package com.example.domain.model.ui
 
 data class JelloSignInUiModel (
-    val addresss: String = "",
+    val address: String = "",
     val name: String = "",
     val profil: String = "",
     val token: String = "",

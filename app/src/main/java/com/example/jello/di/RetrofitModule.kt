@@ -1,5 +1,6 @@
 package com.example.jello.di
 
+import com.example.jello.BuildConfig
 import com.example.jello.annotation.DefaultOkHttpInstance
 import com.example.jello.annotation.JelloRetrofitInstance
 import com.example.jello.utils.retrofit.DataTypeAdapterFactory
