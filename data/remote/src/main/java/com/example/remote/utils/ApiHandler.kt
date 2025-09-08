@@ -1,5 +1,6 @@
 package com.example.remote.utils
 
+import com.example.domain.mapper.base.Mapper
 import com.example.domain.model.base.DomainResource
 import com.example.domain.model.base.DomainResourceError
 import com.example.domain.model.base.DomainResourceErrorType
@@ -9,7 +10,7 @@ import java.net.HttpURLConnection
 
 suspend fun <V: Any, T: Any> handleApiCall(
     apiServiceTransform: suspend () -> NetworkResource<V, ErrorResponse>,
-    mapperToDomain: (Mapper<V,T>)? = null,
+    mapperToDomain: (Mapper<V, T>)? = null,
     mapperToLocal: (Mapper<V,T>)? = null,
     localDbTransform: (suspend (result: NetworkResource<V, ErrorResponse>) -> Unit)? = null
 ): DomainResource<T> {

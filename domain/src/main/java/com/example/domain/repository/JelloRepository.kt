@@ -1,4 +1,4 @@
-package com.example.remote.repository
+package com.example.domain.repository
 
 import com.example.domain.model.base.DomainResource
 import com.example.domain.model.domain.JelloSignInDomainModel
