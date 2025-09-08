@@ -3,7 +3,6 @@ package com.example.remote.mapper.signin
 import com.example.domain.mapper.base.Mapper
 import com.example.domain.model.domain.JelloSignInDomainModel
 import com.example.remote.model.signin.JelloBaseResponse
-import com.example.remote.model.signin.JelloSignInResponse
 
 class JelloSignInDomainMapper: Mapper<JelloBaseResponse, JelloSignInDomainModel> {
 
