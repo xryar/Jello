@@ -3,6 +3,7 @@ package com.example.jello.di
 import com.example.jello.annotation.DefaultOkHttpInstance
 import com.example.jello.annotation.JelloRetrofitInstance
 import com.example.jello.utils.retrofit.DataTypeAdapterFactory
+import com.example.jello.utils.retrofit.NetworkResponseAdapterFactory
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides

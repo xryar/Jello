@@ -1,6 +1,7 @@
 package com.example.jello.di
 
 import com.example.jello.annotation.JelloRetrofitInstance
+import com.example.remote.service.JelloService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
