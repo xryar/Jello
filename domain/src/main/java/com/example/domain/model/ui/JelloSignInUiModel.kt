@@ -1,6 +1,6 @@
-package com.example.domain.model.domain
+package com.example.domain.model.ui
 
-data class JelloLoginDomainModel (
+data class JelloSignInUiModel (
     val addresss: String = "",
     val name: String = "",
     val profil: String = "",
