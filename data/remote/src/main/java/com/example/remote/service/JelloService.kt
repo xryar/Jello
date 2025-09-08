@@ -1,0 +1,19 @@
+package com.example.remote.service
+
+import com.example.remote.model.base.ErrorResponse
+import com.example.remote.model.base.NetworkResource
+import com.example.remote.model.signin.LoginResponse
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
+import retrofit2.http.POST
+
+interface JelloService {
+
+    @FormUrlEncoded
+    @POST("signin.php")
+    suspend fun Login(
+        @Field("email") email: String,
+        @Field("password") password: String
+    ): NetworkResource<LoginResponse, ErrorResponse>
+
+}
