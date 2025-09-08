@@ -6,6 +6,7 @@ import com.example.domain.repository.JelloRepository
 import com.example.remote.mapper.signin.JelloSignInDomainMapper
 import com.example.remote.service.JelloService
 import com.example.remote.utils.handleApiCall
+import javax.inject.Inject
 
 class JelloRepositoryImpl @Inject constructor(
     private val jelloService: JelloService

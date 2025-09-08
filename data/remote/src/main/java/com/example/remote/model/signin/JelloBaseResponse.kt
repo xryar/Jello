@@ -7,7 +7,7 @@ data class JelloBaseResponse(
     @SerializedName("code")
     val code: Int?,
     @SerializedName("data")
-    val data: JelloBaseResponse?,
+    val data: JelloSignInResponse?,
     @SerializedName("message")
     val message: String?
 )
