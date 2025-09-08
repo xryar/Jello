@@ -3,7 +3,7 @@ package com.example.remote.model.signin
 
 import com.google.gson.annotations.SerializedName
 
-data class Data(
+data class JelloSignInResponse(
     @SerializedName("address")
     val address: String?,
     @SerializedName("name")
