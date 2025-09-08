@@ -11,7 +11,7 @@ interface JelloService {
 
     @FormUrlEncoded
     @POST("signin.php")
-    suspend fun Login(
+    suspend fun login(
         @Field("email") email: String,
         @Field("password") password: String
     ): NetworkResource<LoginResponse, ErrorResponse>
