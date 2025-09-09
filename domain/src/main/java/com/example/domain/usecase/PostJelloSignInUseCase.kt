@@ -8,6 +8,7 @@ import com.example.domain.repository.JelloRepository
 import com.example.domain.utils.mapTo
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import javax.inject.Inject
 
 class PostJelloSignInUseCase @Inject constructor(
     private val repository: JelloRepository
