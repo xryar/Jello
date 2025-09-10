@@ -47,7 +47,7 @@ fun SignInScreen(
     val context = LocalContext.current
 
     val signInState by viewModel.signIn.observeAsState()
-    when (signInState) {
+    when (val state = signInState) {
         is SignInState.OnSignInLoading -> {
             Toast.makeText(context, "Loading", Toast.LENGTH_SHORT).show()
         }
@@ -55,7 +55,11 @@ fun SignInScreen(
             Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
         }
         is SignInState.OnSignInAvailable -> {
-            viewModel.onNavigateToHome(context)
+            if (state.signInUiModel?.code == 200) {
+                viewModel.onNavigateToHome(context)
+            } else {
+                Toast.makeText(context, "Error ${state.signInUiModel?.message}", Toast.LENGTH_SHORT).show()
+            }
         }
         else -> {
 

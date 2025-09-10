@@ -8,6 +8,8 @@ class JelloSignInDomainMapper: Mapper<JelloBaseResponse, JelloSignInDomainModel>
 
     override fun to(t: JelloBaseResponse): JelloSignInDomainModel =
         JelloSignInDomainModel(
+            code = t.code ?: 0,
+            message = t.message.orEmpty(),
             name = t.data?.name.orEmpty(),
             address = t.data?.address.orEmpty(),
             profil = t.data?.profil.orEmpty(),
