@@ -21,7 +21,7 @@ class SignInViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _signIn: MutableLiveData<SignInState> = MutableLiveData()
-    private val signIn: LiveData<SignInState> = _signIn
+    val signIn: LiveData<SignInState> = _signIn
 
     fun postSignIn(email: String, password: String) {
         viewModelScope.launch(Dispatchers.Main) {
