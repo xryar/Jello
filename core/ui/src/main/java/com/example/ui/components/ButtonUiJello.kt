@@ -21,6 +21,7 @@ import com.example.ui.theme.VeryDarkGrayishBlue
 fun JelloButtonPrimary(
     text: String = "Login Now",
     onClick: () -> Unit = {},
+    enabled: Boolean = true,
 ) {
     JelloBaseButton(
         modifier = Modifier.fillMaxWidth()
@@ -28,7 +29,7 @@ fun JelloButtonPrimary(
             .height(56.dp),
         text = text,
         onClick = onClick,
-        enabled = true,
+        enabled = enabled,
         color = ButtonDefaults.buttonColors(
             containerColor = LightOrange,
             contentColor = VeryDarkGrayishBlue,

@@ -124,7 +124,12 @@ fun SignInScreen(
 
         JelloButtonPrimary(
             onClick = {
-                viewModel.postSignIn(email.value, password.value)
+                if (email.value.isBlank() && password.value.isBlank()) {
+                    Toast.makeText(context, "Please fill all fields", Toast.LENGTH_SHORT).show()
+                    return@JelloButtonPrimary
+                } else {
+                    viewModel.postSignIn(email.value, password.value)
+                }
             }
         )
 
