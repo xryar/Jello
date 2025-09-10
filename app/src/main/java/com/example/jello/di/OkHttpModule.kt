@@ -1,6 +1,7 @@
 package com.example.jello.di
 
 import android.content.Context
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.example.jello.annotation.DefaultOkHttpInstance
 import dagger.Module
 import dagger.Provides
@@ -30,6 +31,7 @@ class OkHttpModule {
             cache(Cache(context.cacheDir, cacheSize))
             readTimeout(readTimeout, TimeUnit.SECONDS)
             connectTimeout(connectTimeout, TimeUnit.SECONDS)
+            addInterceptor(ChuckerInterceptor.Builder(context).build())
         }.build()
     }
 
