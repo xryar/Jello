@@ -2,6 +2,7 @@ package com.example.local.preference
 
 import android.content.Context
 import android.content.SharedPreferences
+import javax.inject.Inject
 
 class SharedPreference @Inject constructor(
     context: Context
