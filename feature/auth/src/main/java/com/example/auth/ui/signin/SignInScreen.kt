@@ -130,7 +130,8 @@ fun SignInScreen(
                 } else {
                     viewModel.postSignIn(email.value, password.value)
                 }
-            }
+            },
+            enabled = email.value.isNotBlank() && password.value.isNotBlank()
         )
 
         JelloButtonRow()
