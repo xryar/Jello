@@ -47,6 +47,12 @@ fun SignInScreen(
 
     val context = LocalContext.current
 
+    viewModel.getToken()
+    val token by viewModel.token.observeAsState()
+    if (!token.isNullOrEmpty()) {
+        viewModel.onNavigateToHome(context)
+    }
+
     val signInState by viewModel.signIn.observeAsState()
     LaunchedEffect(signInState) {
         when (val state = signInState) {
