@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
@@ -47,22 +48,24 @@ fun SignInScreen(
     val context = LocalContext.current
 
     val signInState by viewModel.signIn.observeAsState()
-    when (val state = signInState) {
-        is SignInState.OnSignInLoading -> {
-            Toast.makeText(context, "Loading", Toast.LENGTH_SHORT).show()
-        }
-        is SignInState.OnSignInError -> {
-            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
-        }
-        is SignInState.OnSignInAvailable -> {
-            if (state.signInUiModel?.code == 200) {
-                viewModel.onNavigateToHome(context)
-            } else {
-                Toast.makeText(context, "Error ${state.signInUiModel?.message}", Toast.LENGTH_SHORT).show()
+    LaunchedEffect(signInState) {
+        when (val state = signInState) {
+            is SignInState.OnSignInLoading -> {
+                Toast.makeText(context, "Loading", Toast.LENGTH_SHORT).show()
             }
-        }
-        else -> {
+            is SignInState.OnSignInError -> {
+                Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
+            }
+            is SignInState.OnSignInAvailable -> {
+                if (state.signInUiModel?.code == 200) {
+                    viewModel.onNavigateToHome(context)
+                } else {
+                    Toast.makeText(context, "Error ${state.signInUiModel?.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
+            else -> {
 
+            }
         }
     }
 
