@@ -147,11 +147,6 @@ fun HomeScreenPreview() {
     HomeScreen()
 }
 
-data class ProductItem(
-    val title: String,
-    val subItems: List<String> = emptyList()
-)
-
 @Composable
 fun ItemProductHomeList(items: List<JelloHomeUiModel.BodyUiModel>) {
     LazyColumn(
