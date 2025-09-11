@@ -29,7 +29,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
@@ -39,7 +38,6 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.domain.model.ui.JelloHomeUiModel
 import com.example.home.state.HomeState
-import com.example.ui.R
 import com.example.ui.components.BannerSliderUiJello
 import com.example.ui.components.JelloImageViewClick
 import com.example.ui.components.JelloImageViewPhotoUrlRounded
