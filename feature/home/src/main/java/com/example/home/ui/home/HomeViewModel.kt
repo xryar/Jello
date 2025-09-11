@@ -1,6 +1,5 @@
 package com.example.home.ui.home
 
-import androidx.compose.runtime.MutableState
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.model.base.UIState
