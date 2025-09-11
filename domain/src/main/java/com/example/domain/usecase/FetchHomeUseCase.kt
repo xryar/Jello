@@ -20,7 +20,7 @@ class FetchHomeUseCase @Inject constructor(
         emit(UIState.OnLoading())
 
         preferenceRepository.getString("token_user").let {
-            when (val result = repository.fetchHome(it)) {
+            when (val result = repository.fetchHome("Bearer $it")) {
                 is DomainResource.OnError -> {
                     emit(UIState.OnFailed(domainResourceError = result.domainResourceError))
                 }
