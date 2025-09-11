@@ -3,6 +3,7 @@ package com.example.home.ui.home
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,8 +19,12 @@ import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material.icons.outlined.ShoppingCart
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -32,6 +37,8 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.domain.model.ui.JelloHomeUiModel
+import com.example.home.state.HomeState
 import com.example.ui.R
 import com.example.ui.components.BannerSliderUiJello
 import com.example.ui.components.JelloImageViewClick
@@ -50,89 +57,94 @@ fun HomeScreen(
         homeViewModel.fetchHome()
     }
 
+    val homeState = homeViewModel.home.collectAsState()
+
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(StrongBlue)
     ) {
-        Row(
-            modifier = Modifier
-                .padding(16.dp)
-                .fillMaxWidth()
-        ) {
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .weight(1f)
-                    .clickable{
 
-                    },
-                colors = CardDefaults.cardColors(
-                    containerColor = Color.White.copy(alpha = 0.2f)
-                )
-            ) {
+        when(val state = homeState.value) {
+            is HomeState.OnLoading -> {
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    CircularProgressIndicator(
+                        modifier = Modifier.align(Alignment.Center),
+                        color = MaterialTheme.colorScheme.primary,
+                        trackColor = MaterialTheme.colorScheme.surface,
+                    )
+                }
+            }
+            is HomeState.OnError -> {
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(text = state.message)
+                }
+            }
+            is HomeState.OnHomeAvailable -> {
                 Row(
                     modifier = Modifier
+                        .padding(16.dp)
                         .fillMaxWidth()
                 ) {
+                    Card(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .weight(1f)
+                            .clickable{
+
+                            },
+                        colors = CardDefaults.cardColors(
+                            containerColor = Color.White.copy(alpha = 0.2f)
+                        )
+                    ) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                        ) {
+                            JelloImageViewClick(
+                                color = Color.White,
+                                imageVector = Icons.Outlined.Search,
+                                onClick = {
+
+                                }
+                            )
+
+                            JelloTextRegular(
+                                text = "Cari barang kamu disini",
+                                color = Color.White,
+                            )
+                        }
+                    }
                     JelloImageViewClick(
                         color = Color.White,
-                        imageVector = Icons.Outlined.Search,
+                        imageVector = Icons.Outlined.ShoppingCart,
                         onClick = {
 
                         }
                     )
-
-                    JelloTextRegular(
-                        text = "Cari barang kamu disini",
-                        color = Color.White,
-                    )
                 }
+
+                val images = listOf(
+                    painterResource(R.drawable.sample_slide1),
+                    painterResource(R.drawable.sample_slide1),
+                    painterResource(R.drawable.sample_slide1),
+                )
+                BannerSliderUiJello(
+                    bannerImage = images,
+                    onClick = {
+
+                    }
+                )
+
+                ItemProductHomeList(state.dataUiModel?.body ?: listOf())
             }
-            JelloImageViewClick(
-                color = Color.White,
-                imageVector = Icons.Outlined.ShoppingCart,
-                onClick = {
-
-                }
-            )
         }
-
-        val images = listOf(
-            painterResource(R.drawable.sample_slide1),
-            painterResource(R.drawable.sample_slide1),
-            painterResource(R.drawable.sample_slide1),
-        )
-        BannerSliderUiJello(
-            bannerImage = images,
-            onClick = {
-
-            }
-        )
-
-        val temp = listOf(
-            ProductItem(
-                "CATEGORIES",
-                listOf(
-                    "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/254-Mega.png",
-                    "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/254-Mega.png",
-                    "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/254-Mega.png",
-                    "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/254-Mega.png",
-                    "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/254-Mega.png",
-                )
-            ),
-            ProductItem(
-                "NEW PRODUCT",
-                listOf(
-                    "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/254-Mega.png",
-                    "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/254-Mega.png",
-                    "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/254-Mega.png",
-                    "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/254-Mega.png",
-                    "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/254-Mega.png",
-                )
-            )
-        )
-        ItemProductHomeList(temp)
     }
 }
 
@@ -148,7 +160,7 @@ data class ProductItem(
 )
 
 @Composable
-fun ItemProductHomeList(items: List<ProductItem>) {
+fun ItemProductHomeList(items: List<JelloHomeUiModel.BodyUiModel>) {
     LazyColumn(
         modifier = Modifier
             .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp))
@@ -185,15 +197,15 @@ fun ItemProductHomeList(items: List<ProductItem>) {
                 )
             }
 
-            if (item.subItems.isNotEmpty()) {
-                SubItemList(item.subItems)
+            if (item.data.isNotEmpty()) {
+                SubItemList(item.data)
             }
         }
     }
 }
 
 @Composable
-fun SubItemList(subItems: List<String>) {
+fun SubItemList(subItems: List<JelloHomeUiModel.BodyUiModel.DataUiModel>) {
     LazyRow(
         modifier = Modifier.padding(start = 16.dp)
     ) {
@@ -210,7 +222,7 @@ fun SubItemList(subItems: List<String>) {
                 )
             ) {
                 JelloImageViewPhotoUrlRounded(
-                    item,
+                    item.image,
                     "image ke $item"
                 )
             }
