@@ -16,6 +16,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.rememberAsyncImagePainter
 import com.example.ui.R
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
@@ -27,7 +28,7 @@ import kotlinx.coroutines.yield
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 fun BannerSliderUiJello(
-    bannerImage: List<Painter>,
+    bannerImage: List<String>,
     onClick: (Int) -> Unit
 ) {
     val pagerState = rememberPagerState()
@@ -49,7 +50,7 @@ fun BannerSliderUiJello(
                 color = Color.White.copy(alpha = 0f)
             ) {
                 Image(
-                    painter = bannerImage[page],
+                    painter = rememberAsyncImagePainter(bannerImage[page]),
                     contentDescription = "Banner Image",
                     contentScale = ContentScale.Crop,
                     modifier = Modifier.fillMaxWidth()
@@ -72,16 +73,4 @@ fun BannerSliderUiJello(
 
 @Preview
 @Composable
-fun BannerSliderUiJelloPreview() {
-    val images = listOf(
-        painterResource(R.drawable.sample_slide1),
-        painterResource(R.drawable.sample_slide1),
-        painterResource(R.drawable.sample_slide1),
-    )
-    BannerSliderUiJello(
-        bannerImage = images,
-        onClick = {
-
-        }
-    )
-}
+fun BannerSliderUiJelloPreview() {}

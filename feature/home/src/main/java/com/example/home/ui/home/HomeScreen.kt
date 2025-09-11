@@ -130,13 +130,8 @@ fun HomeScreen(
                     )
                 }
 
-                val images = listOf(
-                    painterResource(R.drawable.sample_slide1),
-                    painterResource(R.drawable.sample_slide1),
-                    painterResource(R.drawable.sample_slide1),
-                )
                 BannerSliderUiJello(
-                    bannerImage = images,
+                    bannerImage = state.dataUiModel?.header?.map { it.image } ?: listOf(),
                     onClick = {
 
                     }
