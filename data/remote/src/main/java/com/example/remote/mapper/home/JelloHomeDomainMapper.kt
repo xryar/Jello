@@ -2,7 +2,6 @@ package com.example.remote.mapper.home
 
 import com.example.domain.mapper.base.Mapper
 import com.example.domain.model.domain.JelloHomeDomainModel
-import com.example.domain.model.domain.JelloSignInDomainModel
 import com.example.remote.model.home.JelloHomeResponse
 import com.example.remote.model.signin.JelloBaseResponse
 
