@@ -4,7 +4,7 @@ import com.example.domain.mapper.base.Mapper
 import com.example.domain.model.domain.JelloHomeDomainModel
 import com.example.domain.model.ui.JelloHomeUiModel
 
-class JelloHomeDomainMapper: Mapper<JelloHomeDomainModel, JelloHomeUiModel> {
+class JelloHomeUiMapper: Mapper<JelloHomeDomainModel, JelloHomeUiModel> {
 
     override fun to(t: JelloHomeDomainModel): JelloHomeUiModel =
         JelloHomeUiModel(
